@@ -8,7 +8,7 @@ import java.util.Objects;
  */
 public class SpaceMarine implements Comparable{
 
-    private static int counter = 1;
+    private static int counter = 0;
     private int id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
@@ -23,7 +23,7 @@ public class SpaceMarine implements Comparable{
 
     public SpaceMarine (String name, Coordinates coordinates, int health,
                         boolean loyal, AstartesCategory category, MeleeWeapon meleeWeapon, Chapter chapter) {
-        this.id = counter++;
+        this.id = ++counter;
         this.name = name;
         this.coordinates = coordinates;
         this.creationDate = new Date();
@@ -32,6 +32,14 @@ public class SpaceMarine implements Comparable{
         this.category = category;
         this.meleeWeapon = meleeWeapon;
         this.chapter = chapter;
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+
+    public static void setCounter(int x) {
+        counter = x;
     }
 
     /**

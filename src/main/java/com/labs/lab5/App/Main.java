@@ -1,10 +1,7 @@
 package com.labs.lab5.App;
 
 
-import com.labs.lab5.AppUtils.CommandInvoker;
-import com.labs.lab5.AppUtils.ConsoleManager;
-import com.labs.lab5.AppUtils.MarineCreator;
-import com.labs.lab5.AppUtils.Repository;
+import com.labs.lab5.AppUtils.*;
 import com.labs.lab5.Commands.*;
 
 import java.util.ArrayList;
@@ -17,10 +14,9 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        System.setProperty("illegal-access", "deny");
 
-
-        Repository repository = new Repository(new ArrayList<>());
+        RepositoryBuilder repositoryBuilder = new RepositoryBuilder();
+        Repository repository = repositoryBuilder.buildFromXml();
         MarineCreator marineCreator = new MarineCreator();
 
         CommandInvoker commandInvoker = new CommandInvoker(
@@ -44,5 +40,11 @@ public class Main {
         ConsoleManager consoleManager = new ConsoleManager(commandInvoker);
 
         consoleManager.run();
+    }
+
+    private static final String envFileName = "FILENAME_VAR";
+
+    public static String getFileName() {
+        return System.getenv(envFileName);
     }
 }

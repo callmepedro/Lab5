@@ -21,8 +21,28 @@ public class Repository {
         initializationDate = new Date();
     }
 
+    public int getMaxId() {
+        int maxId = 0;
+        for (int i = 0; i < repository.size(); ++i) {
+            int curId = repository.get(i).getId();
+            if (curId > maxId){
+                maxId = curId;
+            }
+        }
+        return maxId;
+    }
+
     private int size(){
         return repository.size();
+    }
+
+    public boolean isThereElementById(int id) {
+        for (int i = 0; i < repository.size(); ++i) {
+            if (repository.get(i).getId() == id){
+                return true;
+            }
+        }
+        return false;
     }
 
     /**

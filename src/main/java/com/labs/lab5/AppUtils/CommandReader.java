@@ -2,6 +2,7 @@ package com.labs.lab5.AppUtils;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -25,7 +26,11 @@ public class CommandReader {
     private static CommandStruct getCommandStruct(String s) {
         if (s == null) return new CommandStruct();
 
-        String[] parsedStrCommand = s.split(" ");
+        s = s.trim();
+        String[] parsedStrCommand = s.split(" ", 2);
+        
+        if (parsedStrCommand.length > 1)
+            parsedStrCommand[1] = parsedStrCommand[1].trim();
 
         if (parsedStrCommand.length == 0 || s.equals("")){
             return new CommandStruct();
@@ -34,7 +39,7 @@ public class CommandReader {
             return new CommandStruct(parsedStrCommand[0]);
         }
         if (parsedStrCommand.length == 2){
-            return new CommandStruct(parsedStrCommand[0], parsedStrCommand[1]);
+            return new CommandStruct(parsedStrCommand[0], parsedStrCommand[parsedStrCommand.length - 1]);
         }
         return new CommandStruct();
     }

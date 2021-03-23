@@ -16,6 +16,9 @@ public class UpdateCommand extends AbstractCommand {
 
     @Override
     public boolean execute() {
-        return repository.update(ConsoleManager.id, marineCreator.create());
+        if (repository.isThereElementById(ConsoleManager.id))
+            return repository.update(ConsoleManager.id, marineCreator.create());
+
+        return false;
     }
 }
