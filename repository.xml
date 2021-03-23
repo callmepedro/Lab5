@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<com.labs.lab5.AppUtils.Repository>
+    <repository>
+        <com.labs.lab5.AppObjects.SpaceMarine>
+            <id>1</id>
+            <name>Pedro</name>
+            <coordinates>
+                <x>228.0</x>
+                <y>-10.0</y>
+            </coordinates>
+            <creationDate>2021-03-23 01:02:19.130 UTC</creationDate>
+            <health>100</health>
+            <loyal>true</loyal>
+            <category>SCOUT</category>
+            <meleeWeapon>POWER_FIST</meleeWeapon>
+            <chapter>
+                <name>Lolya</name>
+                <marinesCount>8</marinesCount>
+            </chapter>
+        </com.labs.lab5.AppObjects.SpaceMarine>
+    </repository>
+    <initializationDate>2021-03-23 00:59:46.152 UTC</initializationDate>
+</com.labs.lab5.AppUtils.Repository>
