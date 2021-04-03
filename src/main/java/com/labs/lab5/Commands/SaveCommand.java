@@ -5,10 +5,8 @@ import com.labs.lab5.AppUtils.ConsoleManager;
 import com.labs.lab5.AppUtils.Repository;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.StaxDriver;
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
+
+import java.io.*;
 
 import static com.labs.lab5.AppUtils.RepositoryBuilder.disableWarning;
 
@@ -29,13 +27,15 @@ public class SaveCommand extends AbstractCommand{
     public boolean execute(Object o) {  // Object o equals null by default
         disableWarning();
         XStream xstream = new XStream(new StaxDriver());
-        String strXml = xstream.toXML(repository);
 
         try (OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
                 new BufferedOutputStream(
                         new FileOutputStream(Main.getFileName(), true)))) {
 
-            outputStreamWriter.write(strXml);
+            PrintWriter printWriter = new PrintWriter(Main.getFileName());
+            printWriter.close();
+
+            xstream.toXML(repository, outputStreamWriter);
 
         } catch (IOException e) {
             ConsoleManager.replyUser("XML file writing failed.");

@@ -1,35 +1,5 @@
 <?xml version="1.0" ?>
 <com.labs.lab5.AppUtils.Repository>
-    <repository>
-        <com.labs.lab5.AppObjects.SpaceMarine>
-            <id>1</id>
-            <name>Pedro</name>
-            <coordinates>
-                <x>1.0</x>
-                <y>3.14</y>
-            </coordinates>
-            <creationDate>2021-03-23 19:52:05.220 UTC</creationDate>
-            <health>100</health>
-            <loyal>true</loyal>
-            <category>SCOUT</category>
-            <meleeWeapon>CHAIN_SWORD</meleeWeapon>
-        </com.labs.lab5.AppObjects.SpaceMarine>
-        <com.labs.lab5.AppObjects.SpaceMarine>
-            <id>3</id>
-            <name>Huil</name>
-            <coordinates>
-                <x>0.0</x>
-                <y>-0.0</y>
-            </coordinates>
-            <creationDate>2021-04-03 18:42:43.721 UTC</creationDate>
-            <health>11</health>
-            <loyal>true</loyal>
-            <category>SCOUT</category>
-            <meleeWeapon>CHAIN_SWORD</meleeWeapon>
-            <chapter>
-                <name>Poop 228</name>
-            </chapter>
-        </com.labs.lab5.AppObjects.SpaceMarine>
-    </repository>
+    <repository></repository>
     <initializationDate>2021-03-23 19:50:23.594 UTC</initializationDate>
 </com.labs.lab5.AppUtils.Repository>

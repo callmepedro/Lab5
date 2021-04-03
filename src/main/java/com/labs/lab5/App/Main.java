@@ -4,8 +4,6 @@ package com.labs.lab5.App;
 import com.labs.lab5.AppUtils.*;
 import com.labs.lab5.Commands.*;
 
-import java.util.ArrayList;
-
 
 /**
  * Main application class.

@@ -30,8 +30,9 @@ com/labs/lab5/Commands/RemoveLastCommand.java
  com.labs.lab5.Commands.RemoveLastCommand
 com/labs/lab5/AppUtils/CommandInvoker.java
  com.labs.lab5.AppUtils.CommandInvoker
-com/labs/lab5/Commands/SaveCommand.java
- com.labs.lab5.Commands.SaveCommand
+com/labs/lab5/AppUtils/MarineCreator.java
+ com.labs.lab5.AppUtils.MarineCreator
+ com.labs.lab5.AppUtils.MarineCreator$UserInfo
 com/labs/lab5/Commands/UpdateCommand.java
  com.labs.lab5.Commands.UpdateCommand
 com/labs/lab5/Commands/AbstractCommand.java
@@ -40,8 +41,8 @@ com/labs/lab5/Commands/ClearCommand.java
  com.labs.lab5.Commands.ClearCommand
 com/labs/lab5/Commands/CountGreaterThanCategoryCommand.java
  com.labs.lab5.Commands.CountGreaterThanCategoryCommand
-com/labs/lab5/AppUtils/RepositoryBuilder.java
- com.labs.lab5.AppUtils.RepositoryBuilder
+com/labs/lab5/AppUtils/CommandReader.java
+ com.labs.lab5.AppUtils.CommandReader
 com/labs/lab5/Commands/Command.java
  com.labs.lab5.Commands.Command
 com/labs/lab5/Commands/RemoveLowerCommand.java
@@ -54,18 +55,17 @@ com/labs/lab5/Commands/RemoveAtCommand.java
  com.labs.lab5.Commands.RemoveAtCommand
 com/labs/lab5/Commands/RemoveByIdCommand.java
  com.labs.lab5.Commands.RemoveByIdCommand
-com/labs/lab5/App/Main.java
- com.labs.lab5.App.Main
+com/labs/lab5/AppUtils/ConsoleManager.java
+ com.labs.lab5.AppUtils.ConsoleManager
 com/labs/lab5/Commands/HelpCommand.java
  com.labs.lab5.Commands.HelpCommand
 com/labs/lab5/Commands/ShowCommand.java
  com.labs.lab5.Commands.ShowCommand
 com/labs/lab5/Commands/ExecuteScriptCommand.java
  com.labs.lab5.Commands.ExecuteScriptCommand
-com/labs/lab5/AppUtils/ConsoleManager.java
- com.labs.lab5.AppUtils.ConsoleManager
-com/labs/lab5/AppUtils/CommandReader.java
- com.labs.lab5.AppUtils.CommandReader
-com/labs/lab5/AppUtils/MarineCreator.java
- com.labs.lab5.AppUtils.MarineCreator
- com.labs.lab5.AppUtils.MarineCreator$UserInfo
+com/labs/lab5/AppUtils/RepositoryBuilder.java
+ com.labs.lab5.AppUtils.RepositoryBuilder
+com/labs/lab5/Commands/SaveCommand.java
+ com.labs.lab5.Commands.SaveCommand
+com/labs/lab5/App/Main.java
+ com.labs.lab5.App.Main
