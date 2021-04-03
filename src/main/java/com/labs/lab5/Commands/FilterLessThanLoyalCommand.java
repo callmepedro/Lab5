@@ -1,8 +1,12 @@
 package com.labs.lab5.Commands;
 
+import com.labs.lab5.AppObjects.SpaceMarine;
 import com.labs.lab5.AppUtils.ConsoleManager;
 import com.labs.lab5.AppUtils.Repository;
 
+/**
+ * Show all elements for which loyal less than given
+ */
 public class FilterLessThanLoyalCommand extends AbstractCommand{
     Repository repository;
 
@@ -11,7 +15,18 @@ public class FilterLessThanLoyalCommand extends AbstractCommand{
         this.repository = repository;
     }
     @Override
-    public boolean execute() {
-        return repository.filterLessThanLoyal(ConsoleManager.loyal);
+    public boolean execute(Object o) {
+        boolean loyal = ConsoleManager.loyal;
+        boolean isNotEmpty = false;
+        String givenLoyalString = Boolean.toString(loyal);
+
+        for (SpaceMarine elem : repository.getList()) {
+            String elemLoyalString = Boolean.toString(elem.getLoyal());
+            if (givenLoyalString.compareTo(elemLoyalString) > 0){
+                ConsoleManager.replyUser(elem.toString());
+                isNotEmpty = true;
+            }
+        }
+        return isNotEmpty;
     }
 }

@@ -3,6 +3,9 @@ package com.labs.lab5.Commands;
 import com.labs.lab5.AppUtils.ConsoleManager;
 import com.labs.lab5.AppUtils.Repository;
 
+/**
+ * Remove the element of repository by index
+ */
 public class RemoveAtCommand extends AbstractCommand{
     Repository repository;
 
@@ -11,7 +14,11 @@ public class RemoveAtCommand extends AbstractCommand{
         this.repository = repository;
     }
     @Override
-    public boolean execute() {
-        return repository.removeAt(ConsoleManager.id);
+    public boolean execute(Object o) {
+        int index = ConsoleManager.id;
+        if (repository.getList().size() < index || index < 1)
+            return false;
+        repository.getList().remove(index-1);
+        return true;
     }
 }

@@ -4,6 +4,9 @@ import com.labs.lab5.AppUtils.ConsoleManager;
 import com.labs.lab5.AppUtils.MarineCreator;
 import com.labs.lab5.AppUtils.Repository;
 
+/**
+ * Update element of repository by ID
+ */
 public class UpdateCommand extends AbstractCommand {
     private Repository repository;
     private MarineCreator marineCreator;
@@ -15,10 +18,15 @@ public class UpdateCommand extends AbstractCommand {
     }
 
     @Override
-    public boolean execute() {
-        if (repository.isThereElementById(ConsoleManager.id))
-            return repository.update(ConsoleManager.id, marineCreator.create());
+    public boolean execute(Object o) {
+        int id = (int)o;
 
+        for (int i = 0; i < repository.size(); ++i) {
+            if (repository.getList().get(i).getId() == id){
+                repository.getList().set(i, marineCreator.create());
+                return true;
+            }
+        }
         return false;
     }
 }

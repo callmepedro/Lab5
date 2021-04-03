@@ -15,6 +15,17 @@ import java.util.ArrayList;
  */
 public class RepositoryBuilder {
 
+    private int getMaxId(Repository repository){
+        int maxId = 0;
+        for (int i = 0; i < repository.size(); ++i) {
+            int curId = repository.getList().get(i).getId();
+            if (curId > maxId){
+                maxId = curId;
+            }
+        }
+        return maxId;
+    }
+
     /**
      * Method for blocking XStream warnings
      */
@@ -44,7 +55,7 @@ public class RepositoryBuilder {
                         new FileInputStream(Main.getFileName()))) {
 
             Repository repository = (Repository) xstream.fromXML(inputStream);
-            SpaceMarine.setCounter(repository.getMaxId());
+            SpaceMarine.setCounter(getMaxId(repository));
             return repository;
 
         } catch (IOException e) {

@@ -2,6 +2,9 @@ package com.labs.lab5.Commands;
 
 import com.labs.lab5.AppUtils.Repository;
 
+/**
+ * Clear repository
+ */
 public class ClearCommand extends AbstractCommand{
     Repository repository;
 
@@ -11,7 +14,10 @@ public class ClearCommand extends AbstractCommand{
     }
 
     @Override
-    public boolean execute(){
-        return repository.clear();
+    public boolean execute(Object o){
+        if (repository.getList().isEmpty())
+            return false;
+        repository.getList().clear();
+        return true;
     }
 }

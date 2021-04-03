@@ -140,39 +140,28 @@ public class ConsoleManager {
                     commandInvoker.clear();
                     break;
                 case "remove_lower":
-                    if (!commandInvoker.removeLower())
-                        replyUser("There is no elements", CommandReaderMode.CONSOLE);
+                    commandInvoker.removeLower();
                     break;
                 case "remove_last":
-                    if(!commandInvoker.removeLast())
-                        replyUser("There is no elements", CommandReaderMode.CONSOLE);
+                    commandInvoker.removeLast();
                     break;
                 case "update":
-                    id = parseId(command.getArgument());
-                    if (id != null && !commandInvoker.update())
-                        replyUser("No element with this ID", CommandReaderMode.CONSOLE);
+                    commandInvoker.update(command.getArgument());
                     break;
                 case "remove_by_id":
-                    id = parseId(command.getArgument());
-                    if (id != null && !commandInvoker.removeById())
-                        replyUser("No element with this ID", CommandReaderMode.CONSOLE);
+                    commandInvoker.removeById(command.getArgument());
                     break;
                 case "remove_at":
-                    id = parseId(command.getArgument());
-                    if (id != null && !commandInvoker.removeAt())
-                        replyUser("No element with this index", CommandReaderMode.CONSOLE);
+                    commandInvoker.removeAt(command.getArgument());
                     break;
                 case "count_greater_than_category":
-                    category = parseCategory(command.getArgument());
-                    if (category != null) commandInvoker.countGreaterThanCategory();
+                    commandInvoker.countGreaterThanCategory(command.getArgument());
                     break;
                 case "filter_less_than_loyal":
-                    loyal = parseLoyal(command.getArgument());
-                    if (loyal != null) commandInvoker.filterLessThanLoyal();
+                    commandInvoker.filterLessThanLoyal(command.getArgument());
                     break;
                 case "execute_script":
-                    path = parsePath(command.getArgument());
-                    if (path != null) commandInvoker.executeScript();
+                    commandInvoker.executeScript(command.getArgument());
                     break;
 
                 default:

@@ -2,6 +2,9 @@ package com.labs.lab5.Commands;
 
 import com.labs.lab5.AppUtils.Repository;
 
+/**
+ * Remove last element from repository
+ */
 public class RemoveLastCommand extends AbstractCommand{
     Repository repository;
 
@@ -12,6 +15,10 @@ public class RemoveLastCommand extends AbstractCommand{
 
     @Override
     public boolean execute() {
-        return repository.removeLast();
+        int index = repository.getList().size() - 1;
+        if (index < 0)
+            return false;
+        repository.getList().remove(index);
+        return true;
     }
 }

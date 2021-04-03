@@ -4,7 +4,9 @@ import com.labs.lab5.AppObjects.SpaceMarine;
 import com.labs.lab5.AppUtils.MarineCreator;
 import com.labs.lab5.AppUtils.Repository;
 
-
+/**
+ * Add new space marine to repository
+ */
 public class AddCommand extends AbstractCommand {
     private Repository repository;
     private MarineCreator marineCreator;
@@ -17,10 +19,10 @@ public class AddCommand extends AbstractCommand {
     }
 
     @Override
-    public boolean execute() {
+    public boolean execute(Object o) {
         spaceMarine = marineCreator.create();
         if (spaceMarine == null)
             return false;
-        return repository.add(spaceMarine);
+        return repository.getList().add(spaceMarine);
     }
 }

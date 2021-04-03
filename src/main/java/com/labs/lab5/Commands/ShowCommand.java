@@ -1,7 +1,12 @@
 package com.labs.lab5.Commands;
 
+import com.labs.lab5.AppObjects.SpaceMarine;
+import com.labs.lab5.AppUtils.ConsoleManager;
 import com.labs.lab5.AppUtils.Repository;
 
+/**
+ * Show information about elements of repository
+ */
 public class ShowCommand extends AbstractCommand{
     Repository repository;
 
@@ -11,7 +16,16 @@ public class ShowCommand extends AbstractCommand{
     }
 
     @Override
-    public boolean execute() {
-        return repository.show();
+    public boolean execute(Object o) {
+        StringBuilder description = new StringBuilder();
+        int counter = 0;
+        for (SpaceMarine elem : repository.getList()){
+            description.append(elem.toString());
+            if (counter != repository.getList().size() - 1)
+                description.append("\n");
+            counter++;
+        }
+        ConsoleManager.replyUser(description.toString());
+        return true;
     }
 }

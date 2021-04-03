@@ -5,6 +5,9 @@ import com.labs.lab5.AppUtils.ConsoleManager;
 
 import java.lang.reflect.Field;
 
+/**
+ * Show information about available commands (Located in CommandInvoker)
+ */
 public class HelpCommand extends AbstractCommand {
 
     private static CommandInvoker commandInvoker;
@@ -13,7 +16,7 @@ public class HelpCommand extends AbstractCommand {
         super("help", "guide for available commands");
     }
 
-    public static void giveCommandInvokerObjToHelpCommand(CommandInvoker obj) {
+    public static void objectOfCommandInvoker(CommandInvoker obj) {
         commandInvoker = obj;
     }
 
@@ -25,7 +28,7 @@ public class HelpCommand extends AbstractCommand {
     }
 
     @Override
-    public boolean execute() {
+    public boolean execute(Object o) {
         StringBuilder manual = new StringBuilder();
         Field[] fields = CommandInvoker.class.getDeclaredFields();
         for (int i = 0; i < fields.length; ++i) {

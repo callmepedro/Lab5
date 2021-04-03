@@ -3,6 +3,9 @@ package com.labs.lab5.Commands;
 import com.labs.lab5.AppUtils.MarineCreator;
 import com.labs.lab5.AppUtils.Repository;
 
+/**
+ * Remove all elements with less health than given
+ */
 public class RemoveLowerCommand extends AbstractCommand{
     Repository repository;
     MarineCreator marineCreator;
@@ -13,7 +16,7 @@ public class RemoveLowerCommand extends AbstractCommand{
         this.marineCreator = marineCreator;
     }
     @Override
-    public boolean execute() {
-        return repository.removeLower(marineCreator.create());
+    public boolean execute(Object o) {
+        return repository.getList().removeIf(n -> n.compareTo(marineCreator.create()) < 0);
     }
 }

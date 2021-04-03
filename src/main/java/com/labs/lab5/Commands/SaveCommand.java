@@ -12,10 +12,13 @@ import java.io.OutputStreamWriter;
 
 import static com.labs.lab5.AppUtils.RepositoryBuilder.disableWarning;
 
+
+/**
+ * Save repository to XML file (File name is in environment variable)
+ */
 public class SaveCommand extends AbstractCommand{
 
     private Repository repository;
-
 
     public SaveCommand(Repository repository) {
         super("save", "save repository to XML");
@@ -23,7 +26,7 @@ public class SaveCommand extends AbstractCommand{
     }
 
     @Override
-    public boolean execute() {
+    public boolean execute(Object o) {
         disableWarning();
         XStream xstream = new XStream(new StaxDriver());
         String strXml = xstream.toXML(repository);

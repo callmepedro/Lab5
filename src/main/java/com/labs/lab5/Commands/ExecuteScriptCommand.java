@@ -8,6 +8,9 @@ import com.labs.lab5.Exceptions.ExecuteScriptRecursionException;
 import java.io.FileNotFoundException;
 import java.util.HashSet;
 
+/**
+ * Execute script from text file
+ */
 public class ExecuteScriptCommand extends AbstractCommand {
 
     private HashSet<String> executeScriptCommandsPull = new HashSet<>();
@@ -17,7 +20,7 @@ public class ExecuteScriptCommand extends AbstractCommand {
     }
 
     @Override
-    public boolean execute() {
+    public boolean execute(Object o) {
         try {
             if (ConsoleManager.getCommandReader().getCommandReaderMod() == CommandReaderMode.CONSOLE) {
                 executeScriptCommandsPull.clear();

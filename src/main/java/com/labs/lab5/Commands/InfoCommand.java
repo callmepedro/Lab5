@@ -1,7 +1,11 @@
 package com.labs.lab5.Commands;
 
+import com.labs.lab5.AppUtils.ConsoleManager;
 import com.labs.lab5.AppUtils.Repository;
 
+/**
+ * Show info about repository
+ */
 public class InfoCommand extends AbstractCommand{
     Repository repository;
 
@@ -11,7 +15,8 @@ public class InfoCommand extends AbstractCommand{
     }
 
     @Override
-    public boolean execute() {
-        return repository.info();
+    public boolean execute(Object o) {
+        ConsoleManager.replyUser(repository.toString());
+        return true;
     }
 }
