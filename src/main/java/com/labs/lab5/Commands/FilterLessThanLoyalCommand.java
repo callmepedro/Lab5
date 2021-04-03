@@ -16,7 +16,7 @@ public class FilterLessThanLoyalCommand extends AbstractCommand{
     }
     @Override
     public boolean execute(Object o) {
-        boolean loyal = ConsoleManager.loyal;
+        boolean loyal = (boolean)o;
         boolean isNotEmpty = false;
         String givenLoyalString = Boolean.toString(loyal);
 

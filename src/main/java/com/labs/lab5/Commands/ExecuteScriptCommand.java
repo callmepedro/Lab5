@@ -21,17 +21,18 @@ public class ExecuteScriptCommand extends AbstractCommand {
 
     @Override
     public boolean execute(Object o) {
+        String path = (String)o;
         try {
             if (ConsoleManager.getCommandReader().getCommandReaderMod() == CommandReaderMode.CONSOLE) {
                 executeScriptCommandsPull.clear();
             }
-            else if (executeScriptCommandsPull.contains(ConsoleManager.path)) {
+            else if (executeScriptCommandsPull.contains(path)) {
                 throw new ExecuteScriptRecursionException("This command causes infinite recursion");
             }
             else {
-                executeScriptCommandsPull.add(ConsoleManager.path);
+                executeScriptCommandsPull.add(path);
             }
-            ConsoleManager.getCommandReader().setFileMod(ConsoleManager.path);
+            ConsoleManager.getCommandReader().setFileMod(path);
 
         } catch (ExecuteScriptRecursionException e){
             ConsoleManager.replyUser(e.getMessage());

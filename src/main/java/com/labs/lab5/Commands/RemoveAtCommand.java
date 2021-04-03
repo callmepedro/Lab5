@@ -15,7 +15,7 @@ public class RemoveAtCommand extends AbstractCommand{
     }
     @Override
     public boolean execute(Object o) {
-        int index = ConsoleManager.id;
+        int index = (int)o;
         if (repository.getList().size() < index || index < 1)
             return false;
         repository.getList().remove(index-1);

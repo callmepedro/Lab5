@@ -28,18 +28,15 @@ public class CommandReader {
 
         s = s.trim();
         String[] parsedStrCommand = s.split(" ", 2);
-        
-        if (parsedStrCommand.length > 1)
-            parsedStrCommand[1] = parsedStrCommand[1].trim();
 
         if (parsedStrCommand.length == 0 || s.equals("")){
             return new CommandStruct();
         }
         if (parsedStrCommand.length == 1){
-            return new CommandStruct(parsedStrCommand[0]);
+            return new CommandStruct(parsedStrCommand[0].trim());
         }
         if (parsedStrCommand.length == 2){
-            return new CommandStruct(parsedStrCommand[0], parsedStrCommand[parsedStrCommand.length - 1]);
+            return new CommandStruct(parsedStrCommand[0].trim(), parsedStrCommand[1].trim());
         }
         return new CommandStruct();
     }

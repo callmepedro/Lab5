@@ -16,7 +16,7 @@ public class ShowCommand extends AbstractCommand{
     }
 
     @Override
-    public boolean execute(Object o) {
+    public boolean execute(Object o) {  // Object o equals null by default
         StringBuilder description = new StringBuilder();
         int counter = 0;
         for (SpaceMarine elem : repository.getList()){

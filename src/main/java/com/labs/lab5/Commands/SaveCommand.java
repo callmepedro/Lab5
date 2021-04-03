@@ -26,7 +26,7 @@ public class SaveCommand extends AbstractCommand{
     }
 
     @Override
-    public boolean execute(Object o) {
+    public boolean execute(Object o) {  // Object o equals null by default
         disableWarning();
         XStream xstream = new XStream(new StaxDriver());
         String strXml = xstream.toXML(repository);

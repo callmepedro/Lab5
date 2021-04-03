@@ -16,7 +16,7 @@ public class RemoveLowerCommand extends AbstractCommand{
         this.marineCreator = marineCreator;
     }
     @Override
-    public boolean execute(Object o) {
+    public boolean execute(Object o) {  // Object o equals null by default
         return repository.getList().removeIf(n -> n.compareTo(marineCreator.create()) < 0);
     }
 }

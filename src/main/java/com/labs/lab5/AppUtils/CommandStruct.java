@@ -44,14 +44,14 @@ public class CommandStruct {
     /**
      * Check for command
      */
-    public boolean isHasCommand() {
+    public Boolean isHasCommand() {
         return hasCommand;
     }
 
     /**
      * Check for argument
      */
-    public boolean isHasArgument() {
+    public Boolean isHasArgument() {
         return hasArgument;
     }
 

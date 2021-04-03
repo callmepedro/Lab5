@@ -10,14 +10,8 @@ import java.lang.reflect.Field;
  */
 public class HelpCommand extends AbstractCommand {
 
-    private static CommandInvoker commandInvoker;
-
     public HelpCommand() {
         super("help", "guide for available commands");
-    }
-
-    public static void objectOfCommandInvoker(CommandInvoker obj) {
-        commandInvoker = obj;
     }
 
     private String helpLine(Command command, boolean lastCommand) {
@@ -28,13 +22,13 @@ public class HelpCommand extends AbstractCommand {
     }
 
     @Override
-    public boolean execute(Object o) {
+    public boolean execute(Object o) {  // Object o is the CommandInvoker's exemplar
         StringBuilder manual = new StringBuilder();
         Field[] fields = CommandInvoker.class.getDeclaredFields();
         for (int i = 0; i < fields.length; ++i) {
             fields[i].setAccessible(true);
             try {
-                Object value = fields[i].get(commandInvoker);
+                Object value = fields[i].get(o);
                 Command command = (Command)value;
                 if (i != fields.length - 1)
                     manual.append(helpLine(command, false));

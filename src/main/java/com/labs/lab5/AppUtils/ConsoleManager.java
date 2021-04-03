@@ -11,11 +11,6 @@ public class ConsoleManager {
     private static final CommandReader commandReader = new CommandReader();
     private final CommandInvoker commandInvoker;
 
-    public static Integer id;
-    public static AstartesCategory category;
-    public static Boolean loyal;
-    public static String path;
-
     public ConsoleManager(CommandInvoker commandInvoker) {
         this.commandInvoker = commandInvoker;
     }
@@ -56,8 +51,7 @@ public class ConsoleManager {
 
     private Integer parseId(String str){
         try {
-            id = Integer.parseInt(str);
-            return id;
+            return Integer.parseInt(str);
         } catch (NumberFormatException e){
             replyUser("Second argument must be a number");
             return null;
@@ -66,8 +60,7 @@ public class ConsoleManager {
 
     private AstartesCategory parseCategory(String str){
         try {
-            category = AstartesCategory.valueOf(str);
-            return category;
+            return AstartesCategory.valueOf(str);
         } catch (IllegalArgumentException e) {
             replyUser("There is no such category");
         }
@@ -76,8 +69,7 @@ public class ConsoleManager {
 
     private Boolean parseLoyal(String str){
         if (str.equalsIgnoreCase("true") || str.equalsIgnoreCase("false")) {
-            loyal =  Boolean.parseBoolean(str);
-            return true;
+            return Boolean.parseBoolean(str);
         }
         replyUser("Argument must be boolean");
         return null;
@@ -97,12 +89,18 @@ public class ConsoleManager {
     public void run() {
         commandReader.setConsoleMod();
 
+        Integer id;
+        AstartesCategory category;
+        Boolean loyal;
+        String path;
+
         boolean session = true;
         do {
             replyUserInline("> ", CommandReaderMode.CONSOLE);
 
             CommandStruct command = getCommandStruct();
 
+            assert command != null;
             if (!command.isHasCommand()){
                 if (commandReader.getCommandReaderMod() == CommandReaderMode.FILE) {
                     commandReader.setConsoleMod();
@@ -140,28 +138,39 @@ public class ConsoleManager {
                     commandInvoker.clear();
                     break;
                 case "remove_lower":
-                    commandInvoker.removeLower();
+                    if (!commandInvoker.removeLower())
+                        replyUser("There is no elements", CommandReaderMode.CONSOLE);
                     break;
                 case "remove_last":
-                    commandInvoker.removeLast();
+                    if(!commandInvoker.removeLast())
+                        replyUser("There is no elements", CommandReaderMode.CONSOLE);
                     break;
                 case "update":
-                    commandInvoker.update(command.getArgument());
+                    id = parseId(command.getArgument());
+                    if (id != null && !commandInvoker.update(id))
+                        replyUser("No element with this ID", CommandReaderMode.CONSOLE);
                     break;
                 case "remove_by_id":
-                    commandInvoker.removeById(command.getArgument());
+                    id = parseId(command.getArgument());
+                    if (id != null && !commandInvoker.removeById(id))
+                        replyUser("No element with this ID", CommandReaderMode.CONSOLE);
                     break;
                 case "remove_at":
-                    commandInvoker.removeAt(command.getArgument());
+                    id = parseId(command.getArgument());
+                    if (id != null && !commandInvoker.removeAt(id))
+                        replyUser("No element with this index", CommandReaderMode.CONSOLE);
                     break;
                 case "count_greater_than_category":
-                    commandInvoker.countGreaterThanCategory(command.getArgument());
+                    category = parseCategory(command.getArgument());
+                    if (category != null) commandInvoker.countGreaterThanCategory(category);
                     break;
                 case "filter_less_than_loyal":
-                    commandInvoker.filterLessThanLoyal(command.getArgument());
+                    loyal = parseLoyal(command.getArgument());
+                    if (loyal != null) commandInvoker.filterLessThanLoyal(loyal);
                     break;
                 case "execute_script":
-                    commandInvoker.executeScript(command.getArgument());
+                    path = parsePath(command.getArgument());
+                    if (path != null) commandInvoker.executeScript(path);
                     break;
 
                 default:

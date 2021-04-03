@@ -19,7 +19,7 @@ public class PrintDescendingCommand extends AbstractCommand {
         this.repository = repository;
     }
     @Override
-    public boolean execute(Object o) {
+    public boolean execute(Object o) {  // Object o equals null by default
         if (repository.getList().isEmpty()) return false;
         List<SpaceMarine> sortedRepository = new ArrayList<>(repository.getList());
         sortedRepository.sort(Comparator.comparingInt(SpaceMarine::getId));

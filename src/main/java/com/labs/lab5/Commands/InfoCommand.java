@@ -15,7 +15,7 @@ public class InfoCommand extends AbstractCommand{
     }
 
     @Override
-    public boolean execute(Object o) {
+    public boolean execute(Object o) {  // Object o equals null by default
         ConsoleManager.replyUser(repository.toString());
         return true;
     }

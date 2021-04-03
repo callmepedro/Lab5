@@ -14,7 +14,7 @@ public class ClearCommand extends AbstractCommand{
     }
 
     @Override
-    public boolean execute(Object o){
+    public boolean execute(Object o){   // Object o equals null by default
         if (repository.getList().isEmpty())
             return false;
         repository.getList().clear();

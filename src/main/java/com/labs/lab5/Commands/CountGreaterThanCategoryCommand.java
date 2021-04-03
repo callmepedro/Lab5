@@ -19,7 +19,7 @@ public class CountGreaterThanCategoryCommand extends AbstractCommand{
     public boolean execute(Object o) {
         String iterCategory;
         String givenCategory;
-        AstartesCategory category = ConsoleManager.category;
+        AstartesCategory category = (AstartesCategory)o;
         int counter = 0;
         for (SpaceMarine elem : repository.getList()) {
             iterCategory = elem.getCategory().toString();

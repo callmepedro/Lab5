@@ -19,7 +19,7 @@ public class AddCommand extends AbstractCommand {
     }
 
     @Override
-    public boolean execute(Object o) {
+    public boolean execute(Object o) {  // Object o equals null by default
         spaceMarine = marineCreator.create();
         if (spaceMarine == null)
             return false;

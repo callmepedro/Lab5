@@ -43,8 +43,6 @@ public class CommandInvoker {
         this.executeScript = executeScript;
         this.helpCommand = helpCommand;
         this.saveCommand = saveCommand;
-
-        HelpCommand.objectOfCommandInvoker(this);
     }
 
 
@@ -76,5 +74,5 @@ public class CommandInvoker {
 
     public boolean save() {return saveCommand.execute(null);}
 
-    public boolean help() { return helpCommand.execute(null);}
+    public boolean help() { return helpCommand.execute(this);}
 }

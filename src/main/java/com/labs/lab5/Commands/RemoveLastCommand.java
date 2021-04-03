@@ -14,7 +14,7 @@ public class RemoveLastCommand extends AbstractCommand{
     }
 
     @Override
-    public boolean execute() {
+    public boolean execute(Object o) {  // Object o equals null by default
         int index = repository.getList().size() - 1;
         if (index < 0)
             return false;

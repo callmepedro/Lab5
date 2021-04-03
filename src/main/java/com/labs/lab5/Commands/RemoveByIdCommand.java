@@ -16,7 +16,7 @@ public class RemoveByIdCommand extends AbstractCommand {
 
     @Override
     public boolean execute(Object o){
-        int id = ConsoleManager.id;
+        int id = (int)o;
         return repository.getList().removeIf(n -> n.getId() == id);
     }
 }
