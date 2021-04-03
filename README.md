@@ -1,3 +1,3 @@
-#Lab5 - programming
+Lab5 - programming
 
-Just check documentetion
+Just check documentation
