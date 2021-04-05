@@ -34,7 +34,7 @@ public class SpaceMarine implements Comparable{
         this.chapter = chapter;
     }
 
-    public int getCounter() {
+    public static int getCounter() {
         return counter;
     }
 

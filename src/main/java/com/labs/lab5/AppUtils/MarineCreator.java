@@ -115,7 +115,7 @@ public class MarineCreator {
         if (!response.isHasCommand()) throw new IncorrectCommandFormatException("Field 'Category' must not be empty");
         if (response.isHasArgument()) throw new IncorrectCommandFormatException("Field 'Category' must be one word");
 
-        this.category = AstartesCategory.valueOf(response.getCommand()); // can throw IllegalArgumentException
+        this.category = AstartesCategory.valueOf(response.getCommand().toUpperCase()); // can throw IllegalArgumentException
     }
 
     private void setMeleeWeapon() {
@@ -125,7 +125,7 @@ public class MarineCreator {
         if (!response.isHasCommand()) throw new IncorrectCommandFormatException("Field 'MeleeWeapon' must not be empty");
         if (response.isHasArgument()) throw new IncorrectCommandFormatException("Field 'MeleeWeapon' must be one word");
 
-        this.meleeWeapon = MeleeWeapon.valueOf(response.getCommand()); // can throw IllegalArgumentException
+        this.meleeWeapon = MeleeWeapon.valueOf(response.getCommand().toUpperCase()); // can throw IllegalArgumentException
     }
 
     private void setChapter() {

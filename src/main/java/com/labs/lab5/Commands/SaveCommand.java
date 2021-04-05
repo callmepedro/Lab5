@@ -36,6 +36,7 @@ public class SaveCommand extends AbstractCommand{
             printWriter.close();
 
             xstream.toXML(repository, outputStreamWriter);
+            
 
         } catch (IOException e) {
             ConsoleManager.replyUser("XML file writing failed.");

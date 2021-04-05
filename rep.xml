@@ -1,5 +1,1 @@
-<?xml version="1.0" ?>
-<com.labs.lab5.AppUtils.Repository>
-    <repository></repository>
-    <initializationDate>2021-03-23 19:50:23.594 UTC</initializationDate>
-</com.labs.lab5.AppUtils.Repository>
+<?xml version="1.0" ?><com.labs.lab5.AppUtils.Repository><repository><com.labs.lab5.AppObjects.SpaceMarine><id>1</id><name>pupa</name><coordinates><x>0.0</x><y>0.0</y></coordinates><creationDate>2021-04-05 23:20:13.635 UTC</creationDate><health>100</health><loyal>true</loyal><category>SCOUT</category><meleeWeapon>CHAIN_SWORD</meleeWeapon></com.labs.lab5.AppObjects.SpaceMarine><com.labs.lab5.AppObjects.SpaceMarine><id>2</id><name>lupa</name><coordinates><x>0.0</x><y>0.0</y></coordinates><creationDate>2021-04-05 23:20:39.641 UTC</creationDate><health>10</health><loyal>true</loyal><category>SCOUT</category><meleeWeapon>CHAIN_SWORD</meleeWeapon><chapter><name>agg</name><marinesCount>2</marinesCount></chapter></com.labs.lab5.AppObjects.SpaceMarine></repository><initializationDate>2021-03-23 19:50:23.594 UTC</initializationDate></com.labs.lab5.AppUtils.Repository>
