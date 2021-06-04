@@ -8,7 +8,7 @@ import com.labs.lab5.AppUtils.Repository;
  * Show information about elements of repository
  */
 public class ShowCommand extends AbstractCommand{
-    Repository repository;
+    private final Repository repository;
 
     public ShowCommand(Repository repository) {
         super("show", "Show information about elements of repository");

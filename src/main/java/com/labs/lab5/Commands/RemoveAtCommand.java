@@ -7,7 +7,7 @@ import com.labs.lab5.AppUtils.Repository;
  * Remove the element of repository by index
  */
 public class RemoveAtCommand extends AbstractCommand{
-    Repository repository;
+    private final Repository repository;
 
     public RemoveAtCommand(Repository repository) {
         super("remove_at index", "Remove element by index");

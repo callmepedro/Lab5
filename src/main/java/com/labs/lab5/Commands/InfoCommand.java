@@ -7,7 +7,7 @@ import com.labs.lab5.AppUtils.Repository;
  * Show info about repository
  */
 public class InfoCommand extends AbstractCommand{
-    Repository repository;
+    private final Repository repository;
 
     public InfoCommand(Repository repository) {
         super("info", "Show info about current repository");

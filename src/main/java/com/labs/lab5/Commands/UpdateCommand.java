@@ -9,8 +9,8 @@ import com.labs.lab5.AppUtils.Repository;
  * Update element of repository by ID
  */
 public class UpdateCommand extends AbstractCommand {
-    private Repository repository;
-    private MarineCreator marineCreator;
+    private final Repository repository;
+    private final MarineCreator marineCreator;
 
     public UpdateCommand(Repository repository, MarineCreator marineCreator) {
         super("update id {element}", "Update value of Repository's element by ID");

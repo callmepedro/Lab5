@@ -7,7 +7,7 @@ import com.labs.lab5.AppUtils.Repository;
  * Remove element of repository by ID
  */
 public class RemoveByIdCommand extends AbstractCommand {
-    private Repository repository;
+    private final Repository repository;
 
     public RemoveByIdCommand(Repository repository){
         super("remove_by_id id", "Remove element from repository by ID");

@@ -13,7 +13,7 @@ import java.util.HashSet;
  */
 public class ExecuteScriptCommand extends AbstractCommand {
 
-    private HashSet<String> executeScriptCommandsPull = new HashSet<>();
+    private final HashSet<String> executeScriptCommandsPull = new HashSet<>();
 
     public ExecuteScriptCommand(){
         super("execute_script file_name", "Execute script from file");

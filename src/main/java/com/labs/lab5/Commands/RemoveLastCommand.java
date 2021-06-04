@@ -6,7 +6,7 @@ import com.labs.lab5.AppUtils.Repository;
  * Remove last element from repository
  */
 public class RemoveLastCommand extends AbstractCommand{
-    Repository repository;
+    private final Repository repository;
 
     public RemoveLastCommand(Repository repository) {
         super("remove_last", "Remove last element from collection");

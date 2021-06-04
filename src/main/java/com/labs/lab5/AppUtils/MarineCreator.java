@@ -26,7 +26,7 @@ public class MarineCreator {
 
 
     private static class UserInfo {
-        private boolean consoleMod;
+        private final boolean consoleMod;
         UserInfo() {
             this.consoleMod = ConsoleManager.getCommandReader().getCommandReaderMod() == CommandReaderMode.CONSOLE;
         }
@@ -64,6 +64,8 @@ public class MarineCreator {
         userInfo.nameInfo();
 
         response = ConsoleManager.getCommandStruct();
+
+        assert response != null;
         if (!response.isHasCommand()) throw new IncorrectCommandFormatException("Field 'Name' must not be empty");
         if (response.isHasArgument()) throw new IncorrectCommandFormatException("Field 'Name' must be one word");
 
@@ -239,6 +241,7 @@ public class MarineCreator {
             return new SpaceMarine(name, coordinates, health, loyal, category, meleeWeapon, chapter);
         }
 
+        // Try to fill current object data from file
         try {
             setName();
             setCoordinates();
@@ -248,6 +251,7 @@ public class MarineCreator {
             setMeleeWeapon();
             setChapter();
             return new SpaceMarine(name, coordinates, health, loyal, category, meleeWeapon, chapter);
+
         } catch (Exception e) {
             ConsoleManager.getCommandReader().setConsoleMod();
             replyUser("SCRIPT STOPPED: Command failed. Check correctness of the data");

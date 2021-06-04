@@ -40,9 +40,12 @@ public class Main {
         consoleManager.run();
     }
 
-    private static final String envFileName = "FILENAME_VAR";
+    private static final String ENV = "FILENAME_VAR";
 
-    public static String getFileName() {
-        return System.getenv(envFileName);
+    public static String getFilenameFromEnv() {
+        return System.getenv(ENV);
+    }
+    public static String getEnv() {
+        return ENV;
     }
 }

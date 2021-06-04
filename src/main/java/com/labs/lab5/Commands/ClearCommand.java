@@ -6,7 +6,7 @@ import com.labs.lab5.AppUtils.Repository;
  * Clear repository
  */
 public class ClearCommand extends AbstractCommand{
-    Repository repository;
+    private final Repository repository;
 
     public ClearCommand(Repository repository) {
         super("clear", "Clear repository");

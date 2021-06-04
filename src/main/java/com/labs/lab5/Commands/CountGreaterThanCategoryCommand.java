@@ -9,7 +9,8 @@ import com.labs.lab5.AppUtils.Repository;
  * Counts the number of elements for which category greater than given
  */
 public class CountGreaterThanCategoryCommand extends AbstractCommand{
-    Repository repository;
+    private final Repository repository;
+
     public CountGreaterThanCategoryCommand(Repository repository){
         super("count_greater_than_category category", "Counts the number of elements for which category greater than given");
         this.repository = repository;

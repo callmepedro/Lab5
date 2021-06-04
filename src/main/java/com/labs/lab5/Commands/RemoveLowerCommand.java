@@ -7,8 +7,8 @@ import com.labs.lab5.AppUtils.Repository;
  * Remove all elements with less health than given
  */
 public class RemoveLowerCommand extends AbstractCommand{
-    Repository repository;
-    MarineCreator marineCreator;
+    private final Repository repository;
+    private final MarineCreator marineCreator;
 
     public RemoveLowerCommand(Repository repository, MarineCreator marineCreator) {
         super("remove_lower {element}", "Remove all elements lower than given");

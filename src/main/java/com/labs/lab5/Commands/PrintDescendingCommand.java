@@ -12,7 +12,7 @@ import java.util.List;
  * Print elements of repository in descending order
  */
 public class PrintDescendingCommand extends AbstractCommand {
-    Repository repository;
+    private final Repository repository;
 
     public PrintDescendingCommand(Repository repository) {
         super("print_descending", "Print elements of repository in descending order");

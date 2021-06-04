@@ -16,7 +16,7 @@ import static com.labs.lab5.AppUtils.RepositoryBuilder.disableWarning;
  */
 public class SaveCommand extends AbstractCommand{
 
-    private Repository repository;
+    private final Repository repository;
 
     public SaveCommand(Repository repository) {
         super("save", "save repository to XML");
@@ -30,14 +30,16 @@ public class SaveCommand extends AbstractCommand{
 
         try (OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
                 new BufferedOutputStream(
-                        new FileOutputStream(Main.getFileName(), true)))) {
+                        new FileOutputStream(Main.getFilenameFromEnv(), true)))) {
 
-            PrintWriter printWriter = new PrintWriter(Main.getFileName());
+            PrintWriter printWriter = new PrintWriter(Main.getFilenameFromEnv());
             printWriter.close();
 
             xstream.toXML(repository, outputStreamWriter);
             
 
+        } catch (NullPointerException e){
+            ConsoleManager.replyUser(String.format("Environment variable %s not found", Main.getEnv()));
         } catch (IOException e) {
             ConsoleManager.replyUser("XML file writing failed.");
             return false;
